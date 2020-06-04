@@ -1,4 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Widget Depot</h1>
+
+<p align="center">
+  <a href="https://app.netlify.com/sites/widget-depot/deploys"><img src="https://api.netlify.com/api/v1/badges/35258d40-713d-449e-abf4-c2ccb63cb088/deploy-status" alt="Deploy Status"></a>
+</p>
+
+
+> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

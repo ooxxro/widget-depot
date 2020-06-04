@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Header from './components/Header';
+import Home from './components/Home';
+
+const Wrapper = styled.div`
+  min-height: 100vh;
+`;
+
+const Content = styled.main`
+  padding: 60px 1rem 2rem;
+  min-height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper className="App">
+      {/* normalize.css */}
+      <CssBaseline />
+
+      <Header />
+      <Content>
+        <Home />
+      </Content>
+    </Wrapper>
   );
 }
 

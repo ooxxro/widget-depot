@@ -12,6 +12,8 @@ const Wrapper = styled.div`
   max-width: 900px;
   margin: 0 auto;
   padding-top: 1rem;
+  position: relative;
+  color: ${props => props.theme.color};
   .MuiAlert-standardError {
     margin-bottom: 1rem;
   }
@@ -20,16 +22,49 @@ const Wrapper = styled.div`
 const Content = styled.div`
   display: flex;
   padding-top: 1rem;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+
+    .widget-detail {
+      margin: 2rem 0 0;
+    }
+  }
 `;
 const WidgetsList = styled.div`
   width: 220px;
   flex: 0 0 auto;
   margin: -16px;
+  @media only screen and (max-width: 700px) {
+    overflow-x: auto;
+    width: 100%;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    min-height: 140px;
+    .widget-card {
+      flex: 0 0 200px;
+      margin: 0 0.5rem;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 
   .MuiSkeleton-root {
     margin: 16px;
     height: 99px;
     border-radius: 5px;
+  }
+
+  .no-result {
+    font-size: 20px;
+    text-align: center;
+    flex: 1;
   }
 `;
 
@@ -48,12 +83,10 @@ export default class Home extends React.Component {
     axios
       .get('/api/widgets.json')
       .then(response => {
-        // console.log(response.data);
         const widgets = response.data.widgets;
         this.setState({ loading: false, widgets, searchedWidgets: widgets });
       })
       .catch(error => {
-        // console.error(error);
         this.setState({
           loading: false,
           errorMsg: `Error while fetching widgets: ${error.message}`,
@@ -62,7 +95,6 @@ export default class Home extends React.Component {
   }
 
   onAddToCart = (widget, quantity) => {
-    console.log(widget, quantity);
     const { cart, updateCart } = this.props;
 
     // clone old state
@@ -95,7 +127,7 @@ export default class Home extends React.Component {
       this.setState({ search, searchedWidgets: widgets });
     } else {
       const searchedWidgets = widgets.filter(widget => {
-        return widget.name.includes(search.trim());
+        return widget.name.toLowerCase().includes(search.trim().toLowerCase());
       });
 
       this.setState({ search, searchedWidgets });
@@ -120,8 +152,12 @@ export default class Home extends React.Component {
                     name={widget.name}
                     price={widget.price}
                     onClick={() => this.setState({ selected: i })}
+                    selected={widgets[selected].id === widget.id}
                   />
                 ))}
+            {search.trim() !== '' && searchedWidgets.length === 0 && (
+              <div className="no-result">No result!</div>
+            )}
           </WidgetsList>
 
           <WidgetDetail

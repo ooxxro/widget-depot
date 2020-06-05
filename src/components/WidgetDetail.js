@@ -101,7 +101,7 @@ export default class WidgetDetail extends React.Component {
     const { cartDialogOpen } = this.state;
 
     return (
-      <Wrapper>
+      <Wrapper className="widget-detail">
         <Header>
           <div className="name">{loading ? <Skeleton /> : widget.name}</div>
           {loading ? (

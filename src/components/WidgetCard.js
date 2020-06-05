@@ -9,6 +9,8 @@ const StyledPaper = styled(Paper)`
   margin: 16px;
   cursor: pointer;
   color: ${props => props.theme.color};
+  overflow: hidden;
+  border: 2px solid transparent;
   &.MuiPaper-root {
     background: ${props => props.theme.cardBg};
     transition: all 0.3s;
@@ -18,6 +20,10 @@ const StyledPaper = styled(Paper)`
       .arrow {
         color: #888;
       }
+    }
+    &.selected {
+      background: ${props => props.theme.cardHoverBg};
+      border-color: ${props => props.theme.colorPrimary};
     }
   }
   .arrow {
@@ -53,9 +59,9 @@ const Price = styled.div`
   }
 `;
 
-export default function WidgetCard({ name, price, ...props }) {
+export default function WidgetCard({ name, price, selected, ...props }) {
   return (
-    <StyledPaper {...props}>
+    <StyledPaper {...props} className={`widget-card ${selected ? 'selected' : ''}`}>
       <Name>{name}</Name>
       <Price>
         <div className="label">Price</div>

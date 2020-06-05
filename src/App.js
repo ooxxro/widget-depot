@@ -14,18 +14,28 @@ const Content = styled.main`
   display: block;
 `;
 
-function App() {
-  return (
-    <Wrapper className="App">
-      {/* normalize.css */}
-      <CssBaseline />
+export default class App extends React.Component {
+  state = {
+    cart: {},
+  };
 
-      <Header />
-      <Content>
-        <Home />
-      </Content>
-    </Wrapper>
-  );
+  updateCart = newCart => {
+    this.setState({ cart: newCart });
+  };
+
+  render() {
+    const { cart } = this.state;
+    return (
+      <Wrapper className="App">
+        {/* normalize.css */}
+        <CssBaseline />
+
+        <Header cart={cart} updateCart={this.updateCart} />
+
+        <Content>
+          <Home cart={cart} updateCart={this.updateCart} />
+        </Content>
+      </Wrapper>
+    );
+  }
 }
-
-export default App;

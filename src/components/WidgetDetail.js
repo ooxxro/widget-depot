@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Tooltip } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddToCartDialog from './AddToCartDialog';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -79,55 +80,87 @@ const Intro = styled.div`
   color: #ababab;
 `;
 
-export default function WidgetDetail({ loading, widget }) {
-  return (
-    <Wrapper>
-      <Header>
-        <div className="name">{loading ? <Skeleton /> : widget.name}</div>
-        {loading ? (
-          <Skeleton variant="circle" width={40} height={40} />
-        ) : (
-          <IconButton
-            aria-label="add to cart"
-            // onClick={}
-          >
-            <AddShoppingCartIcon />
-          </IconButton>
-        )}
-      </Header>
-      <ImageWrapper>
-        {loading ? <Skeleton variant="rect" /> : <img src={widget.mainImg} alt="widget" />}
-      </ImageWrapper>
-      <Spec>
-        <h2>{loading ? <Skeleton /> : 'Specifications'}</h2>
-        <Format>
+export default class WidgetDetail extends React.Component {
+  state = {
+    cartDialogOpen: false,
+  };
+
+  onAddToCart = quantity => {
+    const { widget, onAddToCart } = this.props;
+
+    onAddToCart(widget, quantity);
+
+    this.setState({ cartDialogOpen: false });
+  };
+
+  render() {
+    const { loading, widget } = this.props;
+    const { cartDialogOpen } = this.state;
+
+    return (
+      <Wrapper>
+        <Header>
+          <div className="name">{loading ? <Skeleton /> : widget.name}</div>
           {loading ? (
-            <Skeleton variant="rect" />
+            <Skeleton variant="circle" width={40} height={40} />
           ) : (
-            <>
-              <div className="spec-item">
-                <div className="value">{widget.specs.dimensions.map(x => x + '"').join(' x ')}</div>
-                <div className="label">Dimansions</div>
-              </div>
-              <div className="spec-item">
-                <div className="value">
-                  {widget.specs.weight.value}
-                  {widget.specs.weight.unit}
-                </div>
-                <div className="label">Weight</div>
-              </div>
-              <div className="spec-item">
-                <div className="value">
-                  {widget.specs.capacity.value}
-                  {widget.specs.capacity.unit}
-                </div>
-                <div className="label">Capacity</div>
-              </div>
-            </>
+            <Tooltip title="Add to cart">
+              <IconButton
+                aria-label="add to cart"
+                onClick={() => this.setState({ cartDialogOpen: true })}
+              >
+                <AddShoppingCartIcon />
+              </IconButton>
+            </Tooltip>
           )}
-        </Format>
-      </Spec>
-      <Intro>{loading ? <Skeleton variant="rect" height={300} /> : widget.intro}</Intro>
-    </Wrapper>
-  );
+        </Header>
+        <ImageWrapper>
+          {loading ? <Skeleton variant="rect" /> : <img src={widget.mainImg} alt="widget" />}
+        </ImageWrapper>
+        <Spec>
+          <h2>{loading ? <Skeleton /> : 'Specifications'}</h2>
+          <Format>
+            {loading ? (
+              <Skeleton variant="rect" />
+            ) : (
+              <>
+                <div className="spec-item">
+                  <div className="value">
+                    {widget.specs.dimensions.map(x => x + '"').join(' x ')}
+                  </div>
+                  <div className="label">Dimansions</div>
+                </div>
+                <div className="spec-item">
+                  <div className="value">
+                    {widget.specs.weight.value}
+                    {widget.specs.weight.unit}
+                  </div>
+                  <div className="label">Weight</div>
+                </div>
+                <div className="spec-item">
+                  <div className="value">
+                    {widget.specs.capacity.value}
+                    {widget.specs.capacity.unit}
+                  </div>
+                  <div className="label">Capacity</div>
+                </div>
+              </>
+            )}
+          </Format>
+        </Spec>
+        <Intro>{loading ? <Skeleton variant="rect" height={300} /> : widget.intro}</Intro>
+
+        {/* add to cart dialog */}
+        {widget && (
+          <AddToCartDialog
+            key={widget.id}
+            open={cartDialogOpen}
+            onClose={() => this.setState({ cartDialogOpen: false })}
+            widget={widget}
+            onAdd={this.onAddToCart}
+          />
+        )}
+      </Wrapper>
+    );
+  }
 }

@@ -59,6 +59,32 @@ export default class Home extends React.Component {
       });
   }
 
+  onAddToCart = (widget, quantity) => {
+    console.log(widget, quantity);
+    const { cart, updateCart } = this.props;
+
+    // clone old state
+    const newCart = {
+      ...cart,
+    };
+
+    if (cart[widget.id]) {
+      // widget already in cart, update quantity
+      newCart[widget.id] = {
+        ...newCart[widget.id],
+        quantity: newCart[widget.id].quantity + quantity,
+      };
+    } else {
+      // widget not in cart, add to cart
+      newCart[widget.id] = {
+        widget,
+        quantity,
+      };
+    }
+
+    updateCart(newCart);
+  };
+
   render() {
     const { widgets, loading, errorMsg, selected } = this.state;
     return (
@@ -81,7 +107,11 @@ export default class Home extends React.Component {
                 ))}
           </WidgetsList>
 
-          <WidgetDetail loading={loading} widget={widgets[selected]} />
+          <WidgetDetail
+            loading={loading}
+            widget={widgets[selected]}
+            onAddToCart={this.onAddToCart}
+          />
         </Content>
       </Wrapper>
     );

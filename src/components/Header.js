@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Avatar from '@material-ui/core/Avatar';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import { Tooltip, IconButton, Badge } from '@material-ui/core';
+import CartDrawer from './CartDrawer';
 
 const Wrapper = styled.header`
   position: fixed;
@@ -34,16 +37,56 @@ const Logo = styled.h1`
   color: #fff;
 `;
 
+const Right = styled.div`
+  display: flex;
+  align-items: center;
+  > *:not(:first-child) {
+    margin-left: 1rem;
+  }
+  .MuiIconButton-root {
+    color: #fff;
+  }
+`;
+
 export default class Header extends React.Component {
+  state = {
+    cartDrawerOpen: false,
+  };
+
   render() {
+    const { cart, updateCart } = this.props;
+    const { cartDrawerOpen } = this.state;
+
+    let count = 0;
+    Object.keys(cart).forEach(id => {
+      count += cart[id].quantity;
+    });
+
     return (
       <Wrapper className="main-header">
         <Content>
           <Logo>Widget Depot</Logo>
-          <div>
+          <Right>
+            <Tooltip title="View Cart">
+              <IconButton
+                aria-label="View Cart"
+                onClick={() => this.setState({ cartDrawerOpen: true })}
+              >
+                <Badge badgeContent={count} color="primary">
+                  <ShoppingCartOutlinedIcon />
+                </Badge>
+              </IconButton>
+            </Tooltip>
             <Avatar />
-          </div>
+          </Right>
         </Content>
+
+        <CartDrawer
+          open={cartDrawerOpen}
+          onClose={() => this.setState({ cartDrawerOpen: false })}
+          cart={cart}
+          updateCart={updateCart}
+        />
       </Wrapper>
     );
   }

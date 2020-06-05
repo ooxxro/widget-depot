@@ -9,8 +9,10 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 20px 24px;
   margin-left: 20px;
-  border: 1.5px solid #e1e1e1;
+  border: ${props => props.theme.paperBorder};
   border-radius: 10px;
+  background: ${props => props.theme.paperBg};
+  color: ${props => props.theme.color};
 `;
 
 const Header = styled.div`
@@ -25,6 +27,7 @@ const Header = styled.div`
   }
   .MuiSvgIcon-root {
     font-size: 20px;
+    color: ${props => props.theme.color};
   }
 `;
 const ImageWrapper = styled.div`
@@ -40,7 +43,7 @@ const ImageWrapper = styled.div`
   }
 `;
 const Spec = styled.div`
-  border-top: 1.1px solid #ddd;
+  border-top: ${props => props.theme.paperDividerBorder};
   padding-top: 8px;
   h2 {
     padding-left: 14px;
@@ -63,7 +66,7 @@ const Format = styled.div`
     }
     .label {
       font-size: 9px;
-      color: #555;
+      color: ${props => props.theme.colorSecondary};
     }
   }
   .MuiSkeleton-root {
@@ -74,10 +77,10 @@ const Format = styled.div`
 `;
 
 const Intro = styled.div`
-  border-top: 1.1px solid #ddd;
+  border-top: ${props => props.theme.paperDividerBorder};
   padding: 30px 40px;
   font-size: 12px;
-  color: #ababab;
+  color: ${props => props.theme.color};
 `;
 
 export default class WidgetDetail extends React.Component {

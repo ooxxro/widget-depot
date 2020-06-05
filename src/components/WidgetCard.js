@@ -8,11 +8,12 @@ const StyledPaper = styled(Paper)`
   position: relative;
   margin: 16px;
   cursor: pointer;
+  color: ${props => props.theme.color};
   &.MuiPaper-root {
-    background: #f5f5f5;
+    background: ${props => props.theme.cardBg};
     transition: all 0.3s;
     &:hover {
-      background: #eee;
+      background: ${props => props.theme.cardHoverBg};
       transform: translateY(-3px);
       .arrow {
         color: #888;
@@ -33,16 +34,22 @@ const Name = styled.div`
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
+  color: ${props => props.theme.color};
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const Price = styled.div`
   margin-top: 8px;
   font-weight: light;
   .label {
     font-size: 10px;
-    color: #aaaaaa;
+    color: ${props => props.theme.colorSecondary};
   }
   .value {
     font-size: 16px;
+    color: ${props => props.theme.color};
   }
 `;
 

@@ -14,8 +14,10 @@ const Wrapper = styled.header`
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  background: #fa5898;
+  background: ${props => props.theme.headerBg};
   z-index: 1;
+  font-family: ${props => props.theme.headerLogoFont};
+  color: ${props => props.theme.headerFg};
 `;
 
 const Content = styled.div`
@@ -34,7 +36,7 @@ const Content = styled.div`
 const Logo = styled.h1`
   font-size: 22px;
   font-weight: bold;
-  color: #fff;
+  color: ${props => props.theme.headerFg};
 `;
 
 const Right = styled.div`
@@ -44,7 +46,13 @@ const Right = styled.div`
     margin-left: 1rem;
   }
   .MuiIconButton-root {
-    color: #fff;
+    color: ${props => props.theme.headerFg};
+  }
+
+  .badge {
+    .MuiBadge-badge {
+      background: ${props => props.theme.badgeBg};
+    }
   }
 `;
 
@@ -72,7 +80,7 @@ export default class Header extends React.Component {
                 aria-label="View Cart"
                 onClick={() => this.setState({ cartDrawerOpen: true })}
               >
-                <Badge badgeContent={count} color="primary">
+                <Badge badgeContent={count} className="badge">
                   <ShoppingCartOutlinedIcon />
                 </Badge>
               </IconButton>

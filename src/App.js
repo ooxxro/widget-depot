@@ -1,8 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import themes from './themes';
 import Header from './components/Header';
 import Home from './components/Home';
+
+const GlobalStyle = createGlobalStyle`
+  body.body-theme {
+    background: ${props => props.theme.background};
+  }
+`;
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -26,16 +33,20 @@ export default class App extends React.Component {
   render() {
     const { cart } = this.state;
     return (
-      <Wrapper className="App">
-        {/* normalize.css */}
-        <CssBaseline />
+      <ThemeProvider theme={themes.dark}>
+        <Wrapper className="App">
+          {/* normalize.css */}
+          <CssBaseline />
+          {/* styled-components global style */}
+          <GlobalStyle />
 
-        <Header cart={cart} updateCart={this.updateCart} />
+          <Header cart={cart} updateCart={this.updateCart} />
 
-        <Content>
-          <Home cart={cart} updateCart={this.updateCart} />
-        </Content>
-      </Wrapper>
+          <Content>
+            <Home cart={cart} updateCart={this.updateCart} />
+          </Content>
+        </Wrapper>
+      </ThemeProvider>
     );
   }
 }

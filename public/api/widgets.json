@@ -2,9 +2,9 @@
   "widgets": [
     {
       "id": "0001",
-      "name": "Widget 1",
+      "name": "Lorem Widget",
       "price": 750,
-      "mainImg": "https://images.unsplash.com/photo-1551631880-e807a4453bc1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "mainImg": "https://images.unsplash.com/photo-1567361808960-dec9cb578182?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
       "specs": {
         "dimensions": [14, 20, 5],
         "weight": {
@@ -20,7 +20,7 @@
     },
     {
       "id": "0002",
-      "name": "Widget 2",
+      "name": "Widget Nullam",
       "price": 240,
       "mainImg": "https://images.unsplash.com/photo-1564067018527-8584aca23a04?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
       "specs": {
@@ -38,9 +38,9 @@
     },
     {
       "id": "0003",
-      "name": "Widget 3",
+      "name": "Aliquam ligula",
       "price": 500,
-      "mainImg": "https://images.unsplash.com/photo-1551152620-fe5772ae3604?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "mainImg": "https://images.unsplash.com/photo-1552404872-69e7c4e13df5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
       "specs": {
         "dimensions": [10, 33, 12],
         "weight": {
@@ -56,7 +56,7 @@
     },
     {
       "id": "0004",
-      "name": "Widget 4",
+      "name": "Cras egestas",
       "price": 900,
       "mainImg": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
       "specs": {
@@ -71,6 +71,60 @@
         }
       },
       "intro": "Cras egestas, sem ut sodales posuere, mauris nisi vehicula tortor, sit amet ultrices leo dolor quis est. Pellentesque sodales neque nunc, a condimentum lorem tempor quis. Donec egestas orci pretium dignissim ultrices. Mauris porttitor magna massa, nec ornare lacus placerat vitae. Aliquam fermentum, neque at suscipit aliquam, sem ipsum porta ipsum, blandit ullamcorper massa justo vitae dui. Donec dictum diam sed malesuada dictum. Praesent lobortis ultricies consequat. Fusce ac ligula id tellus hendrerit tristique ac quis justo. Ut ut ultrices purus. Morbi sodales pulvinar ornare. Ut sit amet ultrices lectus."
+    },
+    {
+      "id": "0005",
+      "name": "Vestibulum eu leo vitae",
+      "price": 235,
+      "mainImg": "https://images.unsplash.com/photo-1567473031050-4248185c685d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [4, 31, 53],
+        "weight": {
+          "value": 29,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 23,
+          "unit": "L"
+        }
+      },
+      "intro": "Vestibulum eu leo vitae turpis pellentesque egestas. Donec iaculis enim eu felis pellentesque commodo. Maecenas at hendrerit eros, consectetur interdum ligula. Vivamus tincidunt diam in neque eleifend, ac malesuada lacus accumsan. Ut eget libero turpis. Maecenas facilisis sollicitudin felis efficitur condimentum. Nullam a facilisis diam. Etiam porta placerat leo sit amet tristique. Quisque dictum erat non tortor viverra dignissim. Curabitur at elementum quam. Aenean tristique, erat et dignissim sollicitudin, mi leo euismod orci, eget commodo velit nunc non augue. Maecenas vel risus ac erat ultricies eleifend ut at neque. In id ex nec arcu eleifend ullamcorper in id nisi. Etiam felis elit, sollicitudin at bibendum molestie, hendrerit ac dolor. Vivamus ante dolor, varius quis sollicitudin non, ullamcorper eu dolor. Etiam faucibus magna id tellus fringilla mollis. Proin ut felis accumsan, dapibus dui non, lacinia urna. Duis vulputate nulla nulla, non blandit nisl fermentum eu. Morbi sit amet lacinia magna. Mauris quis consequat sem. Proin rhoncus ex felis, non vestibulum mi ornare sed. Cras aliquam erat arcu, in finibus eros scelerisque non. Proin commodo et turpis vitae ultrices."
+    },
+    {
+      "id": "0006",
+      "name": "Vestibulum eu leo vitae",
+      "price": 235,
+      "mainImg": "https://images.unsplash.com/photo-1567473031050-4248185c685d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [4, 31, 53],
+        "weight": {
+          "value": 29,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 23,
+          "unit": "L"
+        }
+      },
+      "intro": "Vestibulum eu leo vitae turpis pellentesque egestas. Donec iaculis enim eu felis pellentesque commodo. Maecenas at hendrerit eros, consectetur interdum ligula. Vivamus tincidunt diam in neque eleifend, ac malesuada lacus accumsan. Ut eget libero turpis. Maecenas facilisis sollicitudin felis efficitur condimentum. Nullam a facilisis diam. Etiam porta placerat leo sit amet tristique. Quisque dictum erat non tortor viverra dignissim. Curabitur at elementum quam. Aenean tristique, erat et dignissim sollicitudin, mi leo euismod orci, eget commodo velit nunc non augue. Maecenas vel risus ac erat ultricies eleifend ut at neque. In id ex nec arcu eleifend ullamcorper in id nisi. Etiam felis elit, sollicitudin at bibendum molestie, hendrerit ac dolor. Vivamus ante dolor, varius quis sollicitudin non, ullamcorper eu dolor. Etiam faucibus magna id tellus fringilla mollis. Proin ut felis accumsan, dapibus dui non, lacinia urna. Duis vulputate nulla nulla, non blandit nisl fermentum eu. Morbi sit amet lacinia magna. Mauris quis consequat sem. Proin rhoncus ex felis, non vestibulum mi ornare sed. Cras aliquam erat arcu, in finibus eros scelerisque non. Proin commodo et turpis vitae ultrices."
+    },
+    {
+      "id": "0007",
+      "name": "Praesent libero",
+      "price": 50,
+      "mainImg": "https://images.unsplash.com/photo-1585406666850-82f7532fdae3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [4, 1, 3],
+        "weight": {
+          "value": 9,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 3,
+          "unit": "L"
+        }
+      },
+      "intro": "Praesent libero erat, sollicitudin vel magna semper, sollicitudin volutpat lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec lobortis a sem feugiat fermentum. Etiam posuere suscipit tellus, consequat porta ante tempor eget. Praesent et felis sit amet dui aliquam commodo non non orci. Sed tincidunt est quam, vel consequat lorem tincidunt et. Nunc convallis rutrum eros, a ultrices arcu dapibus id. Praesent sagittis, turpis eget elementum efficitur, lectus magna ultricies ipsum, at dictum mauris nisl sit amet magna. Vivamus ac maximus lacus, quis lacinia lectus. In vitae euismod massa. Cras tincidunt mauris quis pretium tempus. Phasellus pretium justo eget auctor scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis sagittis tellus congue iaculis. Nulla facilisi. Ut tristique magna ac ex vehicula tempus. Etiam maximus metus id purus lacinia, eu vehicula ex pellentesque. Aenean ullamcorper arcu lorem, vitae posuere leo euismod ac. Curabitur dignissim libero ac orci congue consequat. Integer semper commodo urna non mollis. Integer est neque, lacinia ac leo et, egestas condimentum justo. Etiam nec eros dui. Aliquam tristique blandit nunc porttitor pellentesque. Ut pellentesque leo at pretium faucibus. Fusce sagittis sit amet ipsum vitae facilisis. Sed commodo, dolor nec hendrerit mollis, felis erat commodo ex, in accumsan orci lectus in magna. Curabitur efficitur est vel lorem pretium, et aliquam ligula blandit. Donec convallis id massa id consequat. Mauris ac erat vel massa tempor egestas rutrum vitae sem. Phasellus suscipit rutrum velit, ac cursus massa convallis in. Nulla facilisi."
     }
   ]
 }

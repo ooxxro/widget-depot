@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/DeleteOutline';
 import { IconButton } from '@material-ui/core';
 
 const Wrapper = styled.div`
-  width: 300px;
+  width: 360px;
   position: relative;
-  background: #eee;
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.color};
   height: 100%;
 
   h2 {
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 5px;
     right: 5px;
+    color: ${props => props.theme.color};
   }
   .empty {
     text-align: center;
@@ -39,7 +41,8 @@ const Wrapper = styled.div`
 const Card = styled.div`
   display: flex;
   align-items: center;
-  background: #fff;
+  background: ${props => props.theme.cardBg};
+  color: ${props => props.theme.color};
   padding: 0.8rem;
   margin: 0.5rem 1rem;
   border-radius: 5px;
@@ -55,7 +58,8 @@ const Card = styled.div`
     flex: 1;
     padding: 0.5rem;
     font-size: 13px;
-    color: #444;
+    color: ${props => props.theme.colorSecondary};
+    overflow: hidden;
   }
   .top {
     display: flex;
@@ -66,18 +70,27 @@ const Card = styled.div`
       font-size: 15px;
       text-transform: uppercase;
       font-weight: bold;
+      color: ${props => props.theme.color};
       margin: 0;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .quantity {
     display: inline-block;
     margin-right: 5px;
-    color: #666;
+    color: ${props => props.theme.colorSecondary};
   }
   .price {
     display: inline-block;
     margin-left: 5px;
-    color: #f72a2a;
+    color: ${props => props.theme.colorError};
+    font-weight: bold;
+  }
+  .remove {
+    color: ${props => props.theme.colorSecondary};
   }
 `;
 

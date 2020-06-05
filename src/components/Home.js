@@ -39,6 +39,8 @@ export default class Home extends React.Component {
     errorMsg: null,
     widgets: [],
     selected: 0,
+    search: '',
+    searchedWidgets: [],
   };
 
   componentDidMount() {
@@ -48,7 +50,7 @@ export default class Home extends React.Component {
       .then(response => {
         // console.log(response.data);
         const widgets = response.data.widgets;
-        this.setState({ loading: false, widgets });
+        this.setState({ loading: false, widgets, searchedWidgets: widgets });
       })
       .catch(error => {
         // console.error(error);
@@ -85,19 +87,34 @@ export default class Home extends React.Component {
     updateCart(newCart);
   };
 
+  onSearch = e => {
+    const search = e.target.value;
+    const { widgets } = this.state;
+
+    if (search.trim() === '') {
+      this.setState({ search, searchedWidgets: widgets });
+    } else {
+      const searchedWidgets = widgets.filter(widget => {
+        return widget.name.includes(search.trim());
+      });
+
+      this.setState({ search, searchedWidgets });
+    }
+  };
+
   render() {
-    const { widgets, loading, errorMsg, selected } = this.state;
+    const { widgets, searchedWidgets, loading, errorMsg, selected, search } = this.state;
     return (
       <Wrapper className="home-page">
         {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
 
-        <SearchBar />
+        <SearchBar value={search} onChange={this.onSearch} />
 
         <Content>
           <WidgetsList>
             {loading
               ? [...Array(4)].map((_, i) => <Skeleton key={i} variant="rect" />)
-              : widgets.map((widget, i) => (
+              : searchedWidgets.map((widget, i) => (
                   <WidgetCard
                     key={widget.id}
                     name={widget.name}

@@ -39,6 +39,7 @@ const StyledPaper = styled(Paper)`
 const Name = styled.div`
   font-size: 14px;
   font-weight: bold;
+  font-family: ${props => props.theme.titleFont};
   text-transform: uppercase;
   color: ${props => props.theme.color};
   width: 100%;

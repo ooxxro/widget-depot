@@ -24,7 +24,7 @@ const Content = styled.main`
 export default class App extends React.Component {
   state = {
     cart: {},
-    theme: localStorage.getItem('theme') || 'peach',
+    theme: localStorage.getItem('theme') || 'ocean',
   };
 
   updateCart = newCart => {
@@ -38,6 +38,7 @@ export default class App extends React.Component {
 
   render() {
     const { cart, theme } = this.state;
+
     return (
       <ThemeProvider theme={themes[theme]}>
         <Wrapper className="App">

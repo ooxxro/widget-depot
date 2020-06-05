@@ -40,8 +40,8 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   .MuiAvatar-root {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 `;
 
@@ -64,6 +64,7 @@ const Right = styled.div`
   .badge {
     .MuiBadge-badge {
       background: ${props => props.theme.badgeBg};
+      color: #fff;
     }
   }
 `;

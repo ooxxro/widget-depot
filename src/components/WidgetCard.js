@@ -46,9 +46,9 @@ const Price = styled.div`
   }
 `;
 
-export default function WidgetCard({ name, price }) {
+export default function WidgetCard({ name, price, ...props }) {
   return (
-    <StyledPaper>
+    <StyledPaper {...props}>
       <Name>{name}</Name>
       <Price>
         <div className="label">Price</div>

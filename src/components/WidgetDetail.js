@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconButton } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const Wrapper = styled.div`
+  width: 100%;
   padding: 20px 24px;
   margin-left: 20px;
   border: 1.5px solid #e1e1e1;
@@ -12,9 +14,10 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   .name {
+    flex: 1;
+    margin-right: 1rem;
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
@@ -23,11 +26,17 @@ const Header = styled.div`
     font-size: 20px;
   }
 `;
-const Image = styled.div`
-  margin: 20px auto;
-  width: 400px;
-  height: 200px;
-  background: #ddd;
+const ImageWrapper = styled.div`
+  display: block;
+  margin: 20px 40px 30px;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .MuiSkeleton-root {
+    height: 240px;
+  }
 `;
 const Spec = styled.div`
   border-top: 1.1px solid #ddd;
@@ -36,6 +45,9 @@ const Spec = styled.div`
     padding-left: 14px;
     font-size: 14px;
     font-weight: bold;
+    .MuiSkeleton-root {
+      width: 120px;
+    }
   }
 `;
 const Format = styled.div`
@@ -53,6 +65,11 @@ const Format = styled.div`
       color: #555;
     }
   }
+  .MuiSkeleton-root {
+    height: 100px;
+    width: 60%;
+    margin-bottom: 30px;
+  }
 `;
 
 const Intro = styled.div`
@@ -62,51 +79,55 @@ const Intro = styled.div`
   color: #ababab;
 `;
 
-export default class WidgetDetail extends React.Component {
-  render() {
-    return (
-      <Wrapper>
-        <Header>
-          <div className="name"> Widget 1</div>
+export default function WidgetDetail({ loading, widget }) {
+  return (
+    <Wrapper>
+      <Header>
+        <div className="name">{loading ? <Skeleton /> : widget.name}</div>
+        {loading ? (
+          <Skeleton variant="circle" width={40} height={40} />
+        ) : (
           <IconButton
             aria-label="add to cart"
             // onClick={}
           >
             <AddShoppingCartIcon />
           </IconButton>
-        </Header>
-        <Image></Image>
-        <Spec>
-          <h2>Specifications</h2>
-          <Format>
-            <div className="spec-item">
-              <div className="value">14" x 20" x 5"</div>
-              <div className="label">Dimansions</div>
-            </div>
-            <div className="spec-item">
-              <div className="value">41lbs</div>
-              <div className="label">Weight</div>
-            </div>
-            <div className="spec-item">
-              <div className="value">10L</div>
-              <div className="label">Capacity</div>
-            </div>
-          </Format>
-        </Spec>
-        <Intro>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit odio consectetur
-          voluptatibus id delectus beatae sint aspernatur et, natus, minima eos deleniti rem aliquid
-          amet enim fuga, hic corrupti autem! Enim adipisci, impedit dolore corporis veniam eos.
-          Quas saepe impedit iusto rem porro ipsa, ea itaque eum natus eaque cupiditate pariatur
-          necessitatibus dolores, optio expedita voluptatum similique dicta molestiae voluptatibus.
-          Dolore, praesentium? Quis id ratione, accusamus praesentium, recusandae facere totam
-          dolore illum, odit iste dignissimos reprehenderit? Voluptatibus, adipisci sint molestias
-          repellendus eaque minima omnis quisquam quas aspernatur, ex atque similique! Ipsum illum
-          commodi debitis facere, fuga rerum ab quibusdam totam! Nulla nihil reiciendis, repellat
-          earum, error eligendi esse necessitatibus nobis excepturi minus eos corrupti, odit
-          aliquid! At sit aspernatur magnam.
-        </Intro>
-      </Wrapper>
-    );
-  }
+        )}
+      </Header>
+      <ImageWrapper>
+        {loading ? <Skeleton variant="rect" /> : <img src={widget.mainImg} alt="widget" />}
+      </ImageWrapper>
+      <Spec>
+        <h2>{loading ? <Skeleton /> : 'Specifications'}</h2>
+        <Format>
+          {loading ? (
+            <Skeleton variant="rect" />
+          ) : (
+            <>
+              <div className="spec-item">
+                <div className="value">{widget.specs.dimensions.map(x => x + '"').join(' x ')}</div>
+                <div className="label">Dimansions</div>
+              </div>
+              <div className="spec-item">
+                <div className="value">
+                  {widget.specs.weight.value}
+                  {widget.specs.weight.unit}
+                </div>
+                <div className="label">Weight</div>
+              </div>
+              <div className="spec-item">
+                <div className="value">
+                  {widget.specs.capacity.value}
+                  {widget.specs.capacity.unit}
+                </div>
+                <div className="label">Capacity</div>
+              </div>
+            </>
+          )}
+        </Format>
+      </Spec>
+      <Intro>{loading ? <Skeleton variant="rect" height={300} /> : widget.intro}</Intro>
+    </Wrapper>
+  );
 }

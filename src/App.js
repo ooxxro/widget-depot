@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 const Content = styled.main`
   padding: 60px 1rem 2rem;
   min-height: 100vh;
+  display: block;
 `;
 
 function App() {

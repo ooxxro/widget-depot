@@ -1,0 +1,76 @@
+{
+  "widgets": [
+    {
+      "id": "0001",
+      "name": "Widget 1",
+      "price": 750,
+      "mainImg": "https://images.unsplash.com/photo-1551631880-e807a4453bc1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [14, 20, 5],
+        "weight": {
+          "value": 4,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 10,
+          "unit": "L"
+        }
+      },
+      "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula nibh sagittis pulvinar ullamcorper. Suspendisse accumsan pretium turpis. Mauris porttitor nulla sed lorem luctus bibendum ullamcorper at arcu. Donec gravida vestibulum interdum. Nam dictum, lorem eu gravida faucibus, lectus purus ornare risus, a viverra ante eros sit amet mauris. Ut ut quam non justo cursus scelerisque. Donec sollicitudin ac nunc elementum egestas. Integer ac vulputate ipsum, in fringilla ex. Donec gravida tellus sapien, vel sagittis risus condimentum porttitor. Suspendisse eu vulputate libero, in fermentum orci. Quisque quis eleifend justo. Praesent molestie placerat orci nec aliquet. Maecenas lorem turpis, dictum quis velit id, pretium sagittis nibh."
+    },
+    {
+      "id": "0002",
+      "name": "Widget 2",
+      "price": 240,
+      "mainImg": "https://images.unsplash.com/photo-1564067018527-8584aca23a04?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [21, 10, 3],
+        "weight": {
+          "value": 12,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 33,
+          "unit": "L"
+        }
+      },
+      "intro": "Nullam neque lorem, viverra a neque non, maximus viverra sem. Nunc pretium, ligula eu ultrices hendrerit, quam lorem finibus lectus, a tempor elit neque ac mi. Vestibulum tempus turpis sed lectus tempor, eget pellentesque ex maximus. Ut viverra lorem dui, ac ultricies diam hendrerit eget. Praesent vitae orci viverra, pharetra leo quis, efficitur neque. Suspendisse eget nisl massa. Integer a sagittis ex. Integer ipsum nisl, dictum id est a, malesuada suscipit ligula. Cras dictum massa id mi sodales eleifend. Phasellus varius nisi vitae odio ultrices posuere. Fusce malesuada dapibus turpis, eu egestas nulla sodales ac. Mauris ornare libero enim, vel imperdiet ex sagittis ut. Phasellus vitae lacinia sem. Nam lorem arcu, ullamcorper in velit et, tincidunt varius elit."
+    },
+    {
+      "id": "0003",
+      "name": "Widget 3",
+      "price": 500,
+      "mainImg": "https://images.unsplash.com/photo-1551152620-fe5772ae3604?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [10, 33, 12],
+        "weight": {
+          "value": 5.2,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 7.9,
+          "unit": "L"
+        }
+      },
+      "intro": "Aliquam ligula diam, sagittis nec convallis eu, euismod ac urna. Fusce et massa purus. Ut ut congue dolor, at feugiat lorem. Etiam consectetur mi ac enim lacinia, ac rhoncus ex dictum. In accumsan, mi at posuere sagittis, tellus risus auctor dui, quis malesuada purus est ac metus. Nam urna massa, ultrices eget enim non, iaculis convallis quam. Mauris pellentesque elit vitae sapien laoreet, id posuere sem varius. Aliquam nec imperdiet tellus, nec lobortis dui. In in sagittis turpis. Curabitur in vestibulum massa. Morbi non faucibus nisl, id tristique dolor. Etiam fermentum neque non leo ullamcorper tempor. Nulla tincidunt eget lorem nec lobortis. Quisque a mi dolor. In ac neque dapibus, tempus felis et, scelerisque ex. Aliquam a dui nec purus mollis fringilla sit amet ac mi."
+    },
+    {
+      "id": "0004",
+      "name": "Widget 4",
+      "price": 900,
+      "mainImg": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=400&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=800",
+      "specs": {
+        "dimensions": [44, 3, 5],
+        "weight": {
+          "value": 90,
+          "unit": "lbs"
+        },
+        "capacity": {
+          "value": 120,
+          "unit": "L"
+        }
+      },
+      "intro": "Cras egestas, sem ut sodales posuere, mauris nisi vehicula tortor, sit amet ultrices leo dolor quis est. Pellentesque sodales neque nunc, a condimentum lorem tempor quis. Donec egestas orci pretium dignissim ultrices. Mauris porttitor magna massa, nec ornare lacus placerat vitae. Aliquam fermentum, neque at suscipit aliquam, sem ipsum porta ipsum, blandit ullamcorper massa justo vitae dui. Donec dictum diam sed malesuada dictum. Praesent lobortis ultricies consequat. Fusce ac ligula id tellus hendrerit tristique ac quis justo. Ut ut ultrices purus. Morbi sodales pulvinar ornare. Ut sit amet ultrices lectus."
+    }
+  ]
+}

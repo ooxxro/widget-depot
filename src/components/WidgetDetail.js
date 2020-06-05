@@ -58,6 +58,7 @@ const Spec = styled.div`
 const Format = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   .spec-item {
     margin: 2px 40px 20px;
     text-align: center;

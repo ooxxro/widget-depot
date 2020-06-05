@@ -22,6 +22,7 @@ const themes = {
     headerBg: '#333333',
     headerLogoFont: "'Carter One', cursive",
     headerFg: '#fff',
+    titleFont: '',
     paperBg: '#424242',
     paperBorder: '1px solid rgba(255, 255, 255, 0.12)',
     paperDividerBorder: '1.1px solid #aaa',

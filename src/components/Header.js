@@ -2,8 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import Avatar from '@material-ui/core/Avatar';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import { Tooltip, IconButton, Badge } from '@material-ui/core';
+import ColorLensIcon from '@material-ui/icons/ColorLens';
+import {
+  Tooltip,
+  IconButton,
+  Badge,
+  MenuItem,
+  Popper,
+  Grow,
+  Paper,
+  ClickAwayListener,
+  MenuList,
+} from '@material-ui/core';
 import CartDrawer from './CartDrawer';
+import themes from '../themes';
 
 const Wrapper = styled.header`
   position: fixed;
@@ -59,11 +71,18 @@ const Right = styled.div`
 export default class Header extends React.Component {
   state = {
     cartDrawerOpen: false,
+    themeMenuOpen: false,
+  };
+
+  onSelectTheme = theme => {
+    const { updateTheme } = this.props;
+    this.setState({ themeMenuOpen: false });
+    updateTheme(theme);
   };
 
   render() {
     const { cart, updateCart } = this.props;
-    const { cartDrawerOpen } = this.state;
+    const { cartDrawerOpen, themeMenuOpen } = this.state;
 
     let count = 0;
     Object.keys(cart).forEach(id => {
@@ -75,6 +94,46 @@ export default class Header extends React.Component {
         <Content>
           <Logo>Widget Depot</Logo>
           <Right>
+            <Tooltip title="Change Theme">
+              <IconButton
+                aria-label="Change Theme"
+                ref={el => {
+                  this.themeMenuRef = el;
+                }}
+                onClick={() => this.setState(state => ({ themeMenuOpen: !state.themeMenuOpen }))}
+              >
+                <ColorLensIcon />
+              </IconButton>
+            </Tooltip>
+            <Popper
+              open={themeMenuOpen}
+              anchorEl={this.themeMenuRef}
+              role={undefined}
+              transition
+              disablePortal
+            >
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
+                  }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={() => this.setState({ themeMenuOpen: false })}>
+                      <MenuList autoFocusItem={themeMenuOpen} id="theme-menu-list-grow">
+                        {Object.keys(themes).map(theme => (
+                          <MenuItem key={theme} onClick={() => this.onSelectTheme(theme)}>
+                            {theme}
+                          </MenuItem>
+                        ))}
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+
             <Tooltip title="View Cart">
               <IconButton
                 aria-label="View Cart"

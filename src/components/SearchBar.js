@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextField, InputAdornment, IconButton } from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 const StyledTextField = styled(TextField)`
@@ -31,13 +31,7 @@ export default function SearchBar({ ...props }) {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton
-              className="search"
-              aria-label="search"
-              // onClick={}
-            >
-              <SearchIcon />
-            </IconButton>
+            <SearchIcon />
           </InputAdornment>
         ),
       }}

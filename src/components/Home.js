@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   display: flex;
+  align-items: flex-start;
   padding-top: 1rem;
 
   @media only screen and (max-width: 700px) {
@@ -62,6 +63,7 @@ const WidgetsList = styled.div`
   }
 
   .no-result {
+    padding: 2rem 0;
     font-size: 20px;
     text-align: center;
     flex: 1;

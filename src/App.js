@@ -24,23 +24,29 @@ const Content = styled.main`
 export default class App extends React.Component {
   state = {
     cart: {},
+    theme: localStorage.getItem('theme') || 'peach',
   };
 
   updateCart = newCart => {
     this.setState({ cart: newCart });
   };
 
+  updateTheme = theme => {
+    localStorage.setItem('theme', theme);
+    this.setState({ theme });
+  };
+
   render() {
-    const { cart } = this.state;
+    const { cart, theme } = this.state;
     return (
-      <ThemeProvider theme={themes.dark}>
+      <ThemeProvider theme={themes[theme]}>
         <Wrapper className="App">
           {/* normalize.css */}
           <CssBaseline />
           {/* styled-components global style */}
           <GlobalStyle />
 
-          <Header cart={cart} updateCart={this.updateCart} />
+          <Header cart={cart} updateCart={this.updateCart} updateTheme={this.updateTheme} />
 
           <Content>
             <Home cart={cart} updateCart={this.updateCart} />

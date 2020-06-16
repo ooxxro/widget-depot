@@ -39,7 +39,7 @@ const WidgetsList = styled.div`
   @media only screen and (max-width: 700px) {
     overflow-x: auto;
     width: 100%;
-    margin: 0%;
+    margin: 0;
     display: flex;
     align-items: center;
     padding-bottom: 0.5rem;
@@ -75,7 +75,7 @@ export default class Home extends React.Component {
     loading: true,
     errorMsg: null,
     widgets: [],
-    selected: 0,
+    selected: null,
     search: '',
     searchedWidgets: [],
   };
@@ -86,7 +86,7 @@ export default class Home extends React.Component {
       .get('/api/widgets.json')
       .then(response => {
         const widgets = response.data.widgets;
-        this.setState({ loading: false, widgets, searchedWidgets: widgets });
+        this.setState({ loading: false, widgets, selected: widgets[0], searchedWidgets: widgets });
       })
       .catch(error => {
         this.setState({
@@ -132,12 +132,19 @@ export default class Home extends React.Component {
         return widget.name.toLowerCase().includes(search.trim().toLowerCase());
       });
 
+      // const searchedWidgets = [];
+      // for (let i = 0; i < widgets.length; ++i) {
+      //   if (widgets[i].name.toLowerCase().includes(search.trim().toLowerCase())) {
+      //     searchedWidgets.push(widgets[i]);
+      //   }
+      // }
+
       this.setState({ search, searchedWidgets });
     }
   };
 
   render() {
-    const { widgets, searchedWidgets, loading, errorMsg, selected, search } = this.state;
+    const { searchedWidgets, loading, errorMsg, selected, search } = this.state;
     return (
       <Wrapper className="home-page">
         {errorMsg && <Alert severity="error">{errorMsg}</Alert>}
@@ -148,13 +155,13 @@ export default class Home extends React.Component {
           <WidgetsList>
             {loading
               ? [...Array(4)].map((_, i) => <Skeleton key={i} variant="rect" />)
-              : searchedWidgets.map((widget, i) => (
+              : searchedWidgets.map(widget => (
                   <WidgetCard
                     key={widget.id}
                     name={widget.name}
                     price={widget.price}
-                    onClick={() => this.setState({ selected: i })}
-                    selected={widgets[selected].id === widget.id}
+                    onClick={() => this.setState({ selected: widget })}
+                    selected={selected.id === widget.id}
                   />
                 ))}
             {search.trim() !== '' && searchedWidgets.length === 0 && (
@@ -162,11 +169,7 @@ export default class Home extends React.Component {
             )}
           </WidgetsList>
 
-          <WidgetDetail
-            loading={loading}
-            widget={widgets[selected]}
-            onAddToCart={this.onAddToCart}
-          />
+          <WidgetDetail loading={loading} widget={selected} onAddToCart={this.onAddToCart} />
         </Content>
       </Wrapper>
     );
